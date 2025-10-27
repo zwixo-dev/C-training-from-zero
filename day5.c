@@ -7,22 +7,47 @@ typedef struct {
     char course[30];
     float mediane;
 } Student;
-
+// pushing students
 void pushingStudents(Student tab[], int num){
     int i = 0;
     while(i<num){
         printf("\n------ Student ------%d :\n", i+1);
         printf("First Name : ");
-        scanf("%s", &tab[i].First_Name);
+        scanf("%s", tab[i].First_Name);
         printf("Last Name :");
-        scanf("%s", &tab[i].Last_Name);
-        printf("First course : ");
-        scanf("%s", &tab[i].course);
+        scanf("%s", tab[i].Last_Name);
+        printf("course : ");
+        scanf("%s", tab[i].course);
         printf("mediane : ");
         scanf("%f", &tab[i].mediane);
         i++;
     }
 };
+
+// show the table 
+
+void showArrayStudents(Student tab[], int num){
+    int i = 0;
+    printf("================= student Liste =================\n");
+    while(i< num){
+        printf("%s %s | course : %s | mediane : %f", tab[i].First_Name, tab[i].Last_Name, tab[i].course, tab[i].mediane );
+        printf("\n");
+        i++;
+    }
+};
+
+//search for a student 
+
+int search(Student tab[], int num, char F_Name[]){
+    int i = 0;
+    while(i<num){
+        if(strcmp(tab[i].First_Name, F_Name) == 0){
+            return i;
+        }
+        i++;
+    }
+    return -1;
+}
 
 
 int main() {
@@ -41,5 +66,24 @@ int main() {
     // if num >=1 execute the program 
     // function push th students
     pushingStudents(students, num);
+     // function show
+    showArrayStudents(students, num);
+    
+    // function search for a student
+    
+    char name[30];
+    
+    printf("\n====>Search for student name : ");
+    scanf("%s", name);
+    
+    int studentNameExist = search(students, num, name);
+    
+    if(studentNameExist != -1){
+        printf("\n Student exist : %s | %s | mediane: %.2f",students[studentNameExist].First_Name, 
+       students[studentNameExist].Last_Name, 
+       students[studentNameExist].mediane);
+    } else{
+        printf("This name doesn't exist ;( !");
+    }
     return 0;
 }
