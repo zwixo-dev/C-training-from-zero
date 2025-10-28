@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include <string.h>
 // Simple system using struct
 typedef struct {
     char First_Name[30];
@@ -49,6 +49,18 @@ int search(Student tab[], int num, char F_Name[]){
     return -1;
 }
 
+// How many students have a median >= 10
+int greatMedaine(Student tab[], int num) {
+    int i = 0;
+    int cpt = 0; // counting
+    while (i < num) {
+        if (tab[i].mediane >= 10) {
+            cpt++;
+        }
+        i++;
+    }
+    return cpt;
+}
 
 int main() {
     Student students[20];
@@ -68,7 +80,9 @@ int main() {
     pushingStudents(students, num);
      // function show
     showArrayStudents(students, num);
-    
+    //counting function 
+    printf("\n==== The number of students with median >= 10 is: %d", greatMedaine(students, num));
+
     // function search for a student
     
     char name[30];
