@@ -35,7 +35,7 @@ Pile *depiler(Pile *top, int *val){
             return 0;
         }
         
-    Pile *toDelete = NULL;
+    Pile *toDelete = top;
     *val = toDelete->data;
     top = toDelete->next;
     
