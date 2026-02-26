@@ -47,7 +47,7 @@ Node *insert(Node *root , int val){
     if(val < parent->data){
         parent->left = cree(val);    
     } else{
-        parent->left = cree(val);
+        parent->right = cree(val);
     }
     
 }
