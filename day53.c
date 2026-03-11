@@ -52,10 +52,9 @@ int main(){
     do{
         
         printf("1) Insert \n");
-        printf("2) dispaly \n");
-        printf("3) Search \n");
-        printf("4) min \n");
-        printf("5) max \n");
+        printf("2) Search \n");
+        printf("3) min \n");
+        printf("4) max \n");
         
         printf( "==> Entere a Choice : ");
         scanf("%d", &choice);
