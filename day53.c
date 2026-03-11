@@ -29,7 +29,6 @@ Node *insert(Node *root, int getVal){
         return cree(getVal);
     }
 
-    while(root != NULL){
         if(getVal < root->data){
             root->left = insert(root->left, getVal);
         } else if(getVal>root->data){
@@ -37,7 +36,6 @@ Node *insert(Node *root, int getVal){
         } else{
             return root;
         }
-    }
     
   return root;  
 }
@@ -75,6 +73,7 @@ int main(){
             while(i<size){
                 printf("value %d :", i+1);
                 scanf("%d",&val);
+                root = insert(root, val);
                 i++;
             }
         
