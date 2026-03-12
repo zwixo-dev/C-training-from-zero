@@ -62,6 +62,33 @@ int search(Node *root, int getValToSearch){
     }
 }
 
+int min(Node *root){
+    if(root == NULL){
+        printf("\nroot is Empty !\n");
+        return 0;
+    }
+    
+    if(root->left==NULL){
+        return root->data;
+    }
+    
+    return min(root->left);
+}
+
+int max(Node *root){
+    if(root == NULL){
+        printf("\nroot is Empty !\n");
+        return 0;
+    }
+    
+    if(root->right==NULL){
+        return root->data;
+    }
+    
+    return max(root->right);
+}
+
+
 int main(){
    
     Node *root = NULL;
@@ -70,7 +97,7 @@ int main(){
 
     do{
         
-        printf("1) Insert \n");
+        printf("\n1) Insert \n");
         printf("2) Search \n");
         printf("3) min \n");
         printf("4) max \n");
@@ -102,7 +129,19 @@ int main(){
             scanf("%d", &toSearch);
             search(root, toSearch);
         break;
-    
+
+        case 3:
+            if(min(root)!=0){
+                printf("the MIN value =%d ", min(root));
+            }
+        break;
+        
+        case 4:
+            if(max(root)!=0){
+                printf("the MAX value =%d ", max(root));
+            }
+        break;
+        
         default:
             if(choice != 5){
                 printf("\n choice Not found");
