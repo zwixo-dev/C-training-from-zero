@@ -21,7 +21,9 @@ Node *cree(int getVal){
     
     newNode->data = getVal;
     newNode->left = NULL;
-    newNode->right = NULL;    
+    newNode->right = NULL;   
+
+    return newNode; 
 }
 
 Node *insert(Node *root, int getVal){
