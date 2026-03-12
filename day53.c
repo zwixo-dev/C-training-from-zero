@@ -41,12 +41,29 @@ Node *insert(Node *root, int getVal){
 }
 
 
+int search(Node *root, int getValToSearch){
+    if(root == NULL){
+        printf("Value not found  !\n");
+        return 0;
+    }
 
+        if(getValToSearch == root->data){
+            printf("the value %d exist !");
+            return 1;
+        }
+        
+        
+    if(getValToSearch < root->data){
+        return search(root->left, getValToSearch);
+    } else {
+        return search(root->right, getValToSearch);
+    }
+}
 
 int main(){
    
     Node *root = NULL;
-    int i, size, choice, val; 
+    int i, size, choice, val, toSearch; 
 
 
     do{
@@ -77,7 +94,13 @@ int main(){
             }
         
         break;
-        
+          
+        case 2:
+            printf("searching ... : ");
+            scanf("%d", &toSearch);
+            search(root, toSearch);
+        break;
+    
         default:
             if(choice != 5){
                 printf("\n choice Not found");
