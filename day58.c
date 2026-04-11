@@ -31,7 +31,7 @@ Node *insert(Node *root, int getVal){
     
     if(getVal<root->data){
         root->left = insert(root->left, getVal);
-    }   else if(getVal<root->data){
+    }   else if(getVal>root->data){
         root->right = insert(root->right, getVal);
     } 
 
@@ -83,6 +83,20 @@ Node *rotationRL(Node *root){
 }
 
 
+void display(Node *root, int space){
+    if(root==NULL){
+        return;
+    }
+
+    if(root!=NULL){
+        display(root->left , space+5);
+        printf("\n \n %d*", space, root->data);
+        display(root->right, space+5);
+    }
+
+}
+
+
 int main(){
 
     Node *root = NULL;
@@ -97,6 +111,7 @@ int main(){
         printf("\n3) Rotation Right Right");
         printf("\n4) Rotation Left Right");
         printf("\n5) Rotation Right Left");
+        printf("\n6) Display");
         printf("\nchoice : ");
             scanf("%d", &choice);
 
@@ -120,16 +135,41 @@ int main(){
             break;
 
             case 2:
+            printf("rotationLL Applied");
+                if(root!=NULL){
+                    root  = rotationLL(root);
+                }
             break;
 
             case 3:
+            printf("rotationRR Applied");
+                if(root!=NULL){
+                    root  = rotationRR(root);
+                }
             break;
 
             case 4:
+            printf("rotationLR Applied");
+                if(root!=NULL){
+                    root  = rotationLR(root);
+                }
+            break;
+
+            case 5:
+            printf("rotationRL Applied");
+                if(root!=NULL){
+                    root = rotationRL(root);
+                }
+            break;
+
+            case 6:
+                printf("=============== Display ===============");
+
             break;
 
             default:
                 printf("cmd not found");
+                display(root, 0);
             break;
 
         }}while(choice!=0);
