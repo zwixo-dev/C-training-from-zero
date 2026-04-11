@@ -12,6 +12,12 @@ Node *cree(int getVal){
     if(newNode==NULL){
         return NULL;
     }
+
+    newNode->data = getVal;
+    newNode->left = NULL;
+    newNode->right = NULL;
+
+    return newNode;
 }
 
 Node *insert(Node *root, int getVal){
@@ -29,10 +35,22 @@ Node *insert(Node *root, int getVal){
 }
 
 
+int allNodesTotal(Node *root ){
+    if(root == NULL ){
+        return 0;
+    }
+
+    return root->data+allNodesTotal(root->left)+allNodesTotal(root->right);
+
+}
+
+
 
 int main(){
 
-    int size, choice, i;
+    Node *root = NULL;
+
+    int size, choice, val, i;
 
     do{
         printf("\n1°Insert");
@@ -40,13 +58,38 @@ int main(){
         printf("\n3° all  Childs Total ");
         printf("\n4° all Internal Nodes Total");
 
-        printf("choice : ");
+        printf("\nchoice : ");
 
         scanf("%d",&choice);
 
 
     switch (choice){
             case 1:
+            printf("Give it a Size");
+            scanf("%d",&size);
+            if(size<=0) return 0;
+
+                    i = 0;
+                
+                    while(i<size){
+                        printf("%d == > ", i+1);
+                        scanf("%d", &val);
+                        root = insert(root, val);
+                        i++;
+                    }   
+
+            break;
+
+            case 2:
+            if(root==NULL){
+                printf("root = null");
+            } else{
+                printf("%d",allNodesTotal(root));
+            }
+            break;
+
+            case 3:
+            
             break;
 
             default:
