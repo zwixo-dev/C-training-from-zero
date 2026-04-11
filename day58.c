@@ -42,7 +42,9 @@ Node *insert(Node *root, int getVal){
 // rotation Left Left
 
 Node *rotationLL(Node *root){
-
+    if (root == NULL || root->left == NULL) {
+        return root;
+    }
     Node *child = root->left;
     root->left = child->right;
 
@@ -55,7 +57,9 @@ Node *rotationLL(Node *root){
 // rotation Right Right
 
 Node *rotationRR(Node *root){
-
+    if (root == NULL || root->right == NULL) {
+        return root;
+    }
     Node *child = root->right;
     root->right = child->left;
 
@@ -83,17 +87,14 @@ Node *rotationRL(Node *root){
 }
 
 
-void display(Node *root, int space){
-    if(root==NULL){
-        return;
-    }
+void display(Node *root, int space) {
+    if (root == NULL) return;
 
-    if(root!=NULL){
-        display(root->left , space+5);
-        printf("\n \n %d*", space, root->data);
-        display(root->right, space+5);
-    }
+    display(root->right, space + 10);
 
+    printf("\n%*s%d*\n", space, "", root->data);
+
+    display(root->left, space + 10);
 }
 
 
@@ -117,22 +118,21 @@ int main(){
 
         switch(choice){
 
-            case 1:
-                i = 0 ;
+           case 1:
+                i = 0;
                 printf("size : ");
                 scanf("%d", &size);
-
-                if(size<=0){
-                    printf("\n root = null \n");
-                } else{
-                    while(i<size){
-                        printf("%d ) ===> ", i+1);
+                if(size <= 0){
+                    printf("\n root is empty \n");
+                } else {
+                    while(i < size){
+                        printf("%d ) ===> ", i + 1);
                         scanf("%d", &val);
                         root = insert(root, val);
                         i++;
                     }
                 }
-            break;
+                break;
 
             case 2:
             printf("rotationLL Applied");
@@ -164,7 +164,8 @@ int main(){
 
             case 6:
                 printf("=============== Display ===============");
-
+                display(root, 0);
+                printf("=======================================");
             break;
 
             default:
