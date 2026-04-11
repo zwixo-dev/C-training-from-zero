@@ -56,6 +56,18 @@ int allChildTotal(Node *root){
 }
 
 
+int allInternalNodes(Node *root){
+    if(root==NULL){
+        return 0;
+    }
+
+    if(root->left==NULL && root->right==NULL){
+        return 0;
+    }
+
+    return root->data + allInternalNodes(root->left) + allInternalNodes(root->right);
+}
+
 int main(){
 
     Node *root = NULL;
@@ -107,7 +119,15 @@ int main(){
             }
 
             break;
+            
 
+            case 4:
+                if(root==NULL){
+                    return 0;
+                } else {
+                    printf("%d", allInternalNodes(root));
+                }
+            break;
 
             default:
                 printf("Cmd Not found");
