@@ -52,7 +52,7 @@ Node *rotationLL(Node *root){
 }
 
 
-// rotattion Right Right
+// rotation Right Right
 
 Node *rotationRR(Node *root){
 
@@ -65,11 +65,75 @@ Node *rotationRR(Node *root){
 }
 
 
+// rotation Left Right
+
+Node *rotationLR(Node *root){
+
+    root->left = rotationRR(root->left);
+
+    return rotationLL(root);
+}
+
+// roatation Right Left 
+
+Node *rotationRL(Node *root){
+    root->right = rotationLL(root->right);
+
+    return rotationRR(root);
+}
 
 
 int main(){
 
     Node *root = NULL;
+
+    int choice, val , size, i;
+
+
+    do{
+       
+        printf("\n1) Insert");
+        printf("\n2) Rotation Left Left");
+        printf("\n3) Rotation Right Right");
+        printf("\n4) Rotation Left Right");
+        printf("\n5) Rotation Right Left");
+        printf("\nchoice : ");
+            scanf("%d", &choice);
+
+        switch(choice){
+
+            case 1:
+                i = 0 ;
+                printf("size : ");
+                scanf("%d", &size);
+
+                if(size<=0){
+                    printf("\n root = null \n");
+                } else{
+                    while(i<size){
+                        printf("%d ) ===> ", i+1);
+                        scanf("%d", &val);
+                        root = insert(root, val);
+                        i++;
+                    }
+                }
+            break;
+
+            case 2:
+            break;
+
+            case 3:
+            break;
+
+            case 4:
+            break;
+
+            default:
+                printf("cmd not found");
+            break;
+
+        }}while(choice!=0);
+
 
 
     return 0;
