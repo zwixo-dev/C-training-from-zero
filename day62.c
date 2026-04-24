@@ -132,7 +132,7 @@ int main(){
     
     printf("\nnombre d'aretes du graph = %d", nombreDesAretes(size, matrix));
 
-    printf("\n--- Euler Test ---\n");
+    printf("\n---  Euler Test  ---\n");
     chainEulerien(size, matrix);
 
     return 0;
