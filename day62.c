@@ -49,6 +49,21 @@ void display(int getSize, int matrix[getSize][getSize]){
     
 }
 
+int degreeSommet(int getSize, int matrix[getSize][getSize], int sommet){
+    
+    int i=0, j=0, degree=0;
+    
+
+    while(j<getSize){
+        if(matrix[sommet][j] == 1){
+         degree+=1;
+        }
+        j++;
+    }
+        
+    return degree;
+}
+
 
 int main(){
     
@@ -67,6 +82,12 @@ int main(){
     printf("display adjc Matrix : \n");
     display(size, matrix);
     
+    int sommet;
+    
+    printf("Entrez un sommet pour renvoie le degree : ");
+    scanf("%d", &sommet);
+    
+    printf("le degree de sommet (%d)", degreeSommet(size,matrix,sommet));
     
     return 0;
 }
