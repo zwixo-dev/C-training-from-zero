@@ -78,7 +78,7 @@ int nombreDesAretes(int getSize, int matrix[getSize][getSize]){
         i++;
     }
     
-    compteNombres_DesAretes/2;
+    return compteNombres_DesAretes/2;
 }
 
 int main(){
