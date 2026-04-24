@@ -64,6 +64,22 @@ int degreeSommet(int getSize, int matrix[getSize][getSize], int sommet){
     return degree;
 }
 
+int nombreDesAretes(int getSize, int matrix[getSize][getSize]){
+    int compteNombres_DesAretes = 0, i=0, j=0;
+    
+    while(i<getSize){
+        j=0;
+        while(j<getSize){
+            if(matrix[i][j] == 1){
+                compteNombres_DesAretes+=1;
+            }
+            j++;
+        }
+        i++;
+    }
+    
+    compteNombres_DesAretes/2;
+}
 
 int main(){
     
@@ -88,6 +104,8 @@ int main(){
     scanf("%d", &sommet);
     
     printf("le degree de sommet (%d)", degreeSommet(size,matrix,sommet));
+    
+    printf("\nnombre d'aretes du graph = %d", nombreDesAretes(size, matrix));
     
     return 0;
 }
