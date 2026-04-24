@@ -81,6 +81,31 @@ int nombreDesAretes(int getSize, int matrix[getSize][getSize]){
     return compteNombres_DesAretes/2;
 }
 
+int chainEulerien(int getSize, int matrix[getSize][getSize]){
+    
+    int i=0, odd=0;
+    
+    while(i<getSize){
+        int deg = degreeSommet(getSize, matrix, i);
+        
+        if(deg%2!=0){
+            odd++;
+        }
+        i++;
+    }
+    
+    if(odd == 0){
+       printf("Cycle eulerien\n"); 
+    } else if(odd==2){
+        printf("Chaine eulerienne\n");
+    } else{
+        printf("Pas de chaine eulerienne\n");
+    }
+    
+}
+
+
+
 int main(){
     
     int size;
@@ -106,6 +131,9 @@ int main(){
     printf("le degree de sommet (%d)", degreeSommet(size,matrix,sommet));
     
     printf("\nnombre d'aretes du graph = %d", nombreDesAretes(size, matrix));
-    
+
+    printf("\n--- Euler Test ---\n");
+    chainEulerien(size, matrix);
+
     return 0;
 }
