@@ -12,7 +12,7 @@ This journey is about:
 - Building a strong foundation in **C programming**
 - Understanding how computers think  
 - Learning how to solve problems from scratch  
-- Becoming **a better engineer** — day by day 
+- Becoming **a better engineer** day by day 
 
 ---
 
